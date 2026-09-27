@@ -1,0 +1,31 @@
+[project]
+name = "nauplan"
+version = "0.1.0"
+description = "Freight forecasting and vessel chartering decision support for bulk imports to India's East Coast (SIH26006)"
+authors = [
+    { name = "Tarkshya-26", email = "tarkshyabhardwaj333@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.6",
+    "pyarrow>=25.0.1",
+    "yfinance>=1.7.0",
+]
+
+[project.scripts]
+nauplan = "nauplan.cli:main"
+
+[tool.ruff]
+line-length = 110
+
+[build-system]
+requires = ["uv_build>=0.11.25,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.9",
+]
