@@ -32,6 +32,35 @@ Known gaps: Gopalpur berth-level LOA/beam (official PDF unreachable); beam at Ga
 
 Vessel classes: `vessel_classes.csv` holds Baltic Exchange DWT bands. Standard index vessel dimensions (draft, LOA, beam, TPC) are in the Baltic "Guide to Market Benchmarks" v8.4 (May 2026), which blocks scripted download; to add from a manually saved copy.
 
+## Load ports (sourced 28 Sep 2026)
+
+12 load ports cover all five origins in the problem statement. Every row in `berths.csv` has a `source_type`: `official_*`, `government_dataset` (NGA World Port Index) or `secondary`. Secondary and conflicting values are flagged in `notes`; treat them as provisional.
+
+| Origin | Port | Key limits | Source type |
+|---|---|---|---|
+| Australia | Hay Point (DBCT) | 220,000 DWT, 320 m, 52 m beam; draft tidal: (14.8 + tide - 1) / 1.05 | official terminal |
+| Australia | Gladstone (RG Tanna) | 220,000 DWT, 315 m, 18.8 m berth pocket, 6,000 t/h | official port |
+| US | Hampton Roads (Lamberts Point) | 50 ft draft, 175 ft beam, 8,000 t/h | official operator |
+| US | Baltimore | 14 m depth category | WPI |
+| Mozambique | Nacala | Capesize, limits not sourced | - |
+| Mozambique | Maputo / Matola | 13 m draft | WPI |
+| Mozambique | Beira | 8 m depth category | WPI |
+| Russia | Vostochny | 350 m, 45 m beam, 16 m draft | WPI |
+| Russia | Vanino | 292 m, 45 m, 18 m (conflicts with agent 13.5 m) | WPI |
+| Russia | Ust-Luga | 260 m, 44 m, 14.55 m, 110,000 DWT | secondary |
+| Indonesia | Tanjung Bara | 220,000 DWT, 17.2 m draft, 9,000 t/h | official operator |
+| Indonesia | Taboneo anchorage | floating cranes, Handymax to Capesize | secondary |
+
+Coordinates come from UN/LOCODE or WPI where available, otherwise approximate (used for routing only).
+
+## Passages and sea distances
+
+`passages.csv`: Torres Strait max draft 12.5 m (tidal windows above 12.2 m), Danish straits Route T depth 16.4 to 17 m, Suez Canal 20.1 m.
+
+`distances.csv` (`uv run nauplan distances`): every load x discharge pair, computed with searoute over the Eurostat MARNET network, in three variants: `shortest`, `deep_draft` (no Torres Strait) and `avoid_suez` (Cape of Good Hope). These are modelled routes, not a published distance table; check against SAIL voyage records.
+
+Example, to Paradip: Hay Point 4,899 nm shortest vs 5,813 nm deep draft; Hampton Roads 9,904 nm via Suez vs 12,222 nm via the Cape; Nacala 3,879 nm.
+
 ## Port congestion feeds (found, not yet parsed)
 
 | Feed | What it has |
@@ -43,10 +72,9 @@ Vessel classes: `vessel_classes.csv` holds Baltic Exchange DWT bands. Standard i
 
 | Data | Why | Likely source |
 |---|---|---|
+| Verified limits for Nacala, Baltimore, Vanino, Ust-Luga, Taboneo; Gladstone channel draft; Hay Point Coal Terminal | vessel type feasibility at origin | port authorities, SAIL agents |
 | Per-class freight rates (Capesize, Panamax, Supramax, Handysize) and route rates | core forecasting target | Baltic Exchange (licensed), shipbroker reports, or SAIL's own fixture history |
 | Period time charter rates (6 / 12 month) | spot vs period decision | same as above |
-| Port limits for load ports (Queensland, US East Coast, Mozambique, Russia, Indonesia) | vessel type feasibility at origin | port authority websites |
-| Sea distances per origin-destination pair | voyage days and cost | port-to-port distance tables or computed routes |
 | Port congestion / waiting time | idle time and risk | port authority reports; AIS (commercial) |
 | SAIL cargo programme, contract and demurrage history | real decisions and validation | SAIL (problem owner) |
 | Cyclone history for the Bay of Bengal | disruption risk | IMD RSMC New Delhi best-track data |

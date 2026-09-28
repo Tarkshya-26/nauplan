@@ -1,8 +1,20 @@
-port_id,name,country,role,operation,lat,lon
-paradip,Paradip,India,discharge,berth,20.26,86.72
-vizag,Visakhapatnam,India,discharge,berth,17.68,83.32
-gangavaram,Gangavaram,India,discharge,berth,17.62,83.25
-gopalpur,Gopalpur,India,discharge,berth,19.29,84.98
-dhamra,Dhamra,India,discharge,berth,20.83,87.05
-sandheads,Sagar / Sandheads anchorage,India,discharge,transloading,21.00,88.20
-haldia,Haldia Dock Complex,India,discharge,berth,21.95,88.10
+port_id,name,country,role,operation,lat,lon,coord_source
+paradip,Paradip,India,discharge,berth,20.26,86.72,approximate (weather and routing only)
+vizag,Visakhapatnam,India,discharge,berth,17.68,83.32,approximate (weather and routing only)
+gangavaram,Gangavaram,India,discharge,berth,17.62,83.25,approximate (weather and routing only)
+gopalpur,Gopalpur,India,discharge,berth,19.29,84.98,approximate (weather and routing only)
+dhamra,Dhamra,India,discharge,berth,20.83,87.05,approximate (weather and routing only)
+sandheads,Sagar / Sandheads anchorage,India,discharge,transloading,21.00,88.20,approximate (weather and routing only)
+haldia,Haldia Dock Complex,India,discharge,berth,21.95,88.10,approximate (weather and routing only)
+hay_point,Hay Point (DBCT / HPCT),Australia,load,berth,-21.28,149.30,approximate (routing only)
+gladstone,Gladstone (RG Tanna),Australia,load,berth,-23.84,151.26,approximate (routing only)
+hampton_roads,Hampton Roads (Norfolk),United States,load,berth,36.85,-76.30,NGA World Port Index (Norfolk)
+baltimore,Baltimore,United States,load,berth,39.27,-76.58,NGA World Port Index
+nacala,Nacala,Mozambique,load,berth,-14.53,40.67,NGA World Port Index
+maputo,Maputo / Matola,Mozambique,load,berth,-25.96,32.54,NGA World Port Index
+beira,Beira,Mozambique,load,berth,-19.83,34.83,NGA World Port Index
+vostochny,Vostochny,Russia,load,berth,42.75,133.08,NGA World Port Index
+vanino,Vanino,Russia,load,berth,49.08,140.28,NGA World Port Index (Bukhta Vanino)
+ust_luga,Ust-Luga,Russia,load,berth,59.67,28.32,UN/LOCODE RU ULU
+tanjung_bara,Tanjung Bara,Indonesia,load,berth,0.55,117.65,approximate (routing only)
+taboneo,Taboneo anchorage,Indonesia,load,transloading,-3.68,114.42,UN/LOCODE ID TAB

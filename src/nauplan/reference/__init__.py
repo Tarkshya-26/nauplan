@@ -3,7 +3,8 @@ import pandas as pd
 
 from nauplan.config import REFERENCE
 
-LIMIT_COLUMNS = ["max_loa_m", "max_beam_m", "max_draft_m", "max_dwt_t", "max_displacement_t", "discharge_rate_tpd"]
+LIMIT_COLUMNS = ["max_loa_m", "max_beam_m", "max_draft_m", "max_dwt_t", "max_displacement_t", "water_depth_m",
+                 "discharge_rate_tpd", "load_rate_tph"]
 
 
 def ports() -> pd.DataFrame:
@@ -22,3 +23,8 @@ def berths() -> pd.DataFrame:
 
 def vessel_classes() -> pd.DataFrame:
     return pd.read_csv(REFERENCE / "vessel_classes.csv")
+
+
+def passages() -> pd.DataFrame:
+    """Draft limits on straits and canals that routes may cross."""
+    return pd.read_csv(REFERENCE / "passages.csv")
