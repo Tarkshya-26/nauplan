@@ -51,6 +51,7 @@ docs/
   data-sources.md       what data we have, what is missing, and the limits
   forecasting.md        forecasting method, protocol and results
   optimiser.md          vessel fit and charter optimiser: method, example result, limits
+  demo-script.md        7-minute judge demo: clicks, lines, fallback, likely questions
   plan.md               milestones
 reports/backtest.md     latest backtest tables
 reports/plan_example.md example charter plan
