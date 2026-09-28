@@ -1,0 +1,62 @@
+# Economic and operational parameters for the voyage model and optimiser.
+#
+# Each value is either SOURCED (with its source) or a PLACEHOLDER to replace with SAIL's own
+# data. Placeholders are reasonable-looking round numbers chosen so the model runs; they are
+# NOT market data and results that depend on them are illustrative only.
+
+[voyage]
+sea_margin = 0.05            # SOURCED: Baltic GMB v8.7, Appendix 3 (5% weather allowance on sea days)
+commission = 0.05            # SOURCED: Baltic dry route descriptions ("5% total commission")
+bunker_usd_per_t = 650.0     # PLACEHOLDER: replace with a current VLSFO quote at the bunkering port
+non_cargo_share = 0.04       # PLACEHOLDER: bunkers, stores and constants as a share of DWT
+min_part_cargo_share = 0.60  # PLACEHOLDER: a class is uneconomic if draft limits cut cargo below this share
+load_rate_t_per_day = 40000.0       # PLACEHOLDER: same for all load ports until terminal rates are sourced
+discharge_rate_t_per_day = 25000.0  # PLACEHOLDER: same for all discharge ports
+wait_days_load = 2.0         # PLACEHOLDER: to be replaced by port congestion data
+wait_days_discharge = 3.0    # PLACEHOLDER
+depth_to_draft_factor = 1.10 # PLACEHOLDER: planning draft = water depth / 1.10 where no max draft is published
+
+[voyage.port_fuel_t_per_day]  # PLACEHOLDER: Baltic GMB gives no in-port consumption for dry bulk
+Handysize = 3.0
+"Supramax/Ultramax" = 3.5
+"Panamax/Kamsarmax" = 4.0
+Capesize = 5.0
+
+[voyage.port_costs_usd_per_voyage]  # PLACEHOLDER: load + discharge port costs per round voyage
+Handysize = 40000.0
+"Supramax/Ultramax" = 50000.0
+"Panamax/Kamsarmax" = 60000.0
+Capesize = 90000.0
+
+[tidal]
+# Hay Point: DBCT booklet rule, max draft = (channel depth 14.8 + tide - 1) / 1.05 (SOURCED).
+hay_point_planning_tide_m = 4.0  # PLACEHOLDER: tide height assumed available at sailing
+
+[transloading]
+# Discharging at Sandheads anchorage and moving cargo to Haldia by barge / small ship.
+extra_cost_usd_per_t = 6.0          # PLACEHOLDER
+discharge_rate_t_per_day = 15000.0  # PLACEHOLDER: floating crane rate
+
+[market]
+# SOURCED: Baltic Exchange homepage ticker read 2026-09-28 (publication date not shown), converted
+# to $/day with the multipliers in GMB v8.7: C5TC = BCI / 0.11026, P5TC = BPI / 0.111111,
+# S11TC = BSI / 0.079112625, HS7TC = BHSI / 0.055556. These are global spot timecharter
+# averages, not India-specific rates.
+index_date_note = "Baltic ticker read 2026-09-28"
+[market.spot_hire_usd_per_day]
+Handysize = 18198.0          # BHSI 1,011
+"Supramax/Ultramax" = 22575.0  # BSI 1,786
+"Panamax/Kamsarmax" = 21663.0  # BPI 2,407
+Capesize = 52458.0           # BCI 5,784
+
+[contracts]
+period_premium = 0.0     # PLACEHOLDER: period hire vs current spot hire (0 = no premium)
+coa_premium = 0.03       # PLACEHOLDER: COA $/t vs current spot-equivalent $/t
+relet_discount = 0.10    # PLACEHOLDER: earnings when reletting an idle chartered vessel, vs market hire
+days_per_month = 30.4
+
+[risk]
+cvar_alpha = 0.90        # CVaR over the worst 10% of scenarios
+risk_weight = 0.5        # 0 = minimise expected cost only; higher = pay more to avoid bad outcomes
+scenarios = 200
+seed = 7

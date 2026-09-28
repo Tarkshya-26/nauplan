@@ -11,6 +11,7 @@ def main() -> None:
     sub.add_parser("distances", help="recompute load-to-discharge sea distances into reference/distances.csv")
     sub.add_parser("backtest", help="walk-forward backtest of freight models; writes reports/backtest.md")
     sub.add_parser("forecast", help="latest freight forecast; writes data/processed/forecast_latest.json")
+    sub.add_parser("plan", help="vessel choice and charter plan for the programme; writes reports/plan_example.md")
     args = parser.parse_args()
     if args.cmd == "fetch":
         for name, path in fetch.fetch_all().items():
@@ -23,3 +24,6 @@ def main() -> None:
     elif args.cmd == "forecast":
         from nauplan.forecast.run import latest_forecast
         print(latest_forecast())
+    elif args.cmd == "plan":
+        from nauplan.optimise.report import plan_report
+        print(plan_report())

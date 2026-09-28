@@ -1,0 +1,29 @@
+# SYNTHETIC cargo programme for demonstration only. Not SAIL data.
+# Replace with SAIL's monthly import plan (tonnes per origin port and discharge port).
+
+start_month = "2026-10"
+months = 6
+
+[[route]]
+origin = "hay_point"
+destination = "paradip"
+cargo = "coking coal"
+tonnes_per_month = [320000, 320000, 300000, 300000, 340000, 340000]
+
+[[route]]
+origin = "gladstone"
+destination = "vizag"
+cargo = "coking coal"
+tonnes_per_month = [160000, 160000, 160000, 180000, 180000, 160000]
+
+[[route]]
+origin = "hampton_roads"
+destination = "dhamra"
+cargo = "coking coal"
+tonnes_per_month = [150000, 0, 150000, 150000, 0, 150000]
+
+[[route]]
+origin = "tanjung_bara"
+destination = "haldia"
+cargo = "coal"
+tonnes_per_month = [60000, 60000, 60000, 60000, 60000, 60000]

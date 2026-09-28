@@ -30,7 +30,7 @@ Port coordinates in `src/nauplan/reference/ports.csv` are approximate and only u
 
 Known gaps: Gopalpur berth-level LOA/beam (official PDF unreachable); beam at Gangavaram and Dhamra; discharge rates for all ports except Dhamra; Sandheads transloading rate; Paradip per-berth table (2020 circular taken offline). Dhamra and Haldia drafts change monthly / with tide.
 
-Vessel classes: `vessel_classes.csv` holds Baltic Exchange DWT bands. Standard index vessel dimensions (draft, LOA, beam, TPC) are in the Baltic "Guide to Market Benchmarks" v8.4 (May 2026), which blocks scripted download; to add from a manually saved copy.
+Vessel classes: `vessel_classes.csv` holds Baltic Exchange DWT bands; `vessel_specs.csv` holds the Baltic standard vessels (DWT, draft, LOA, beam, TPC, speed and fuel) from the Guide to Market Benchmarks v8.7 (Aug 2026), read from a copy saved manually (the site blocks scripted download). Current hire per class comes from the Baltic index ticker divided by the GMB multipliers (see config/assumptions.toml). The Baltic S8_63 route (Supramax, Indonesia to East Coast India, coal) is the licensed series closest to this problem.
 
 ## Load ports (sourced 28 Sep 2026)
 

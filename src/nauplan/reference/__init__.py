@@ -3,7 +3,7 @@ import pandas as pd
 
 from nauplan.config import REFERENCE
 
-LIMIT_COLUMNS = ["max_loa_m", "max_beam_m", "max_draft_m", "max_dwt_t", "max_displacement_t", "water_depth_m",
+LIMIT_COLUMNS = ["max_loa_m", "max_beam_m", "max_draft_m", "max_dwt_t", "max_displacement_t", "min_dwt_t", "water_depth_m",
                  "discharge_rate_tpd", "load_rate_tph"]
 
 
