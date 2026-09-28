@@ -20,7 +20,7 @@ uv run pytest
 ```
 src/nauplan/
   data/fetch.py         public data fetchers (freight proxy, Brent, USD/INR, Pink Sheet, marine weather)
-  reference/ports.csv   port constraints (values must cite a source)
+  reference/            ports, berth limits and vessel classes (every limit cites a source)
   cli.py                `nauplan` command
 docs/
   problem-statement.md  official PS text and our reading of the asks

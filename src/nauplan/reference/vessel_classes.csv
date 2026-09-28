@@ -1,0 +1,7 @@
+vessel_class,dwt_min,dwt_max,in_problem_statement,source_title,source_url,accessed
+Handysize,20000,35000,yes,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28
+Handymax,36000,49000,no,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28
+Supramax/Ultramax,50000,66000,yes,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28
+Panamax/Kamsarmax,65000,82500,yes,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28
+Post Panamax/Mini Cape,87000,120000,no,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28
+Capesize,120000,200000,yes,Baltic Exchange: Main Vessel Types,https://www.balticexchange.com/en/who-we-are/guide-to-modern-shipping/main-vessel-types.html,2026-09-28

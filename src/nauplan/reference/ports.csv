@@ -1,8 +1,8 @@
-port_id,name,country,role,lat,lon,max_draft_m,max_loa_m,max_beam_m,max_dwt_t,discharge_rate_tpd,source,source_date
-paradip,Paradip,India,discharge,20.26,86.72,,,,,,,
-vizag,Visakhapatnam,India,discharge,17.68,83.32,,,,,,,
-gangavaram,Gangavaram,India,discharge,17.62,83.25,,,,,,,
-gopalpur,Gopalpur,India,discharge,19.29,84.98,,,,,,,
-dhamra,Dhamra,India,discharge,20.83,87.05,,,,,,,
-sandheads,Sagar / Sandheads anchorage,India,discharge,21.00,88.20,,,,,,,
-haldia,Haldia,India,discharge,21.95,88.10,,,,,,,
+port_id,name,country,role,operation,lat,lon
+paradip,Paradip,India,discharge,berth,20.26,86.72
+vizag,Visakhapatnam,India,discharge,berth,17.68,83.32
+gangavaram,Gangavaram,India,discharge,berth,17.62,83.25
+gopalpur,Gopalpur,India,discharge,berth,19.29,84.98
+dhamra,Dhamra,India,discharge,berth,20.83,87.05
+sandheads,Sagar / Sandheads anchorage,India,discharge,transloading,21.00,88.20
+haldia,Haldia Dock Complex,India,discharge,berth,21.95,88.10
