@@ -1,19 +1,8 @@
-# Idea submission (portal text)
+TITLE = "NauPlan: Freight Forecast-Driven Charter Strategy for Bulk Cargo Imports to India's East Coast"
 
-Updated on 28 Sep 2026 to match the working prototype. Source of truth: `submission/fields.py`; deck: `submission/SIH2026_NauPlan_Vector66.pdf`.
+ABSTRACT = """SAIL charters vessels for coal imports to India's East Coast largely through daily spot fixtures, leaving costs exposed to volatile freight markets and port limits. NauPlan is a working prototype that plans the move to short and medium term multi-voyage contracts. It checks each Baltic standard vessel class against draft, LOA and beam limits at 7 East Coast and 12 load ports, every limit cited, and prices voyages with the Baltic timecharter-equivalent method. Freight ranges come from models tested by walk-forward backtest. A two-stage stochastic optimiser then chooses spot voyages, 3 or 6 month time charters or COAs, and when to fix them, across 200 freight scenarios, reletting idle chartered days. A dashboard shows the plan, the reason behind each ship choice, and early warnings for sea state and freight volatility. Real results need SAIL's import plan and cost data."""
 
-## Idea title (94 / 100 chars)
-
-NauPlan: Freight Forecast-Driven Charter Strategy for Bulk Cargo Imports to India's East Coast
-
-## Abstract (880 / 1,000 chars)
-
-SAIL charters vessels for coal imports to India's East Coast largely through daily spot fixtures, leaving costs exposed to volatile freight markets and port limits. NauPlan is a working prototype that plans the move to short and medium term multi-voyage contracts. It checks each Baltic standard vessel class against draft, LOA and beam limits at 7 East Coast and 12 load ports, every limit cited, and prices voyages with the Baltic timecharter-equivalent method. Freight ranges come from models tested by walk-forward backtest. A two-stage stochastic optimiser then chooses spot voyages, 3 or 6 month time charters or COAs, and when to fix them, across 200 freight scenarios, reletting idle chartered days. A dashboard shows the plan, the reason behind each ship choice, and early warnings for sea state and freight volatility. Real results need SAIL's import plan and cost data.
-
-## Description (3887 / 5,000 chars)
-
-```
-PROBLEM
+DESCRIPTION = """PROBLEM
 SAIL imports bulk cargo such as coal from Australia, the US, Mozambique, Russia and Indonesia to East Coast ports including Paradip, Vizag, Gangavaram, Gopalpur, Dhamra, Sagar-Sandheads and Haldia. Vessels are mostly fixed through daily engagement with the spot market. This misses good moments to lock in short or medium term contracts, and makes the vessel class choice (Handysize, Supramax, Panamax, Capesize) hard, because each port has its own draft, LOA and beam limits.
 
 SOLUTION: NauPlan (working prototype)
@@ -44,9 +33,7 @@ FEASIBILITY
 Open-source stack that runs on a laptop; 37 automated tests; code public at github.com/Tarkshya-26/nauplan. Cost inputs (bunker price, port costs, waiting days) are placeholders and the cargo programme is synthetic until SAIL data is available. Licensed per-class and period freight rates (for example the Baltic S8 route, Indonesia to East Coast India) or SAIL's own fixture history plug into the same pipeline.
 
 EXPECTED IMPACT
-A proactive, auditable chartering strategy with lower exposure to freight swings, ships sized to each port's draft, fewer idle days, and early warning of disruptions.
-```
+A proactive, auditable chartering strategy with lower exposure to freight swings, ships sized to each port's draft, fewer idle days, and early warning of disruptions."""
 
-## Technology bucket
-
-AI/ML, Cloud Computing, Blockchain
+for n, v, lim in (("Title", TITLE, 100), ("Description", DESCRIPTION, 5000), ("Abstract", ABSTRACT, 1000)):
+    print(n, len(v), "/", lim, "OK" if len(v) <= lim else "OVER", "dash!" if any(c in v for c in "–—") else "")

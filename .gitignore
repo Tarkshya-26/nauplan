@@ -11,3 +11,6 @@ dist/
 web/node_modules/
 web/dist/
 web/*.tsbuildinfo
+submission/qa/
+submission/pdfq/
+submission/_crop_*.png
