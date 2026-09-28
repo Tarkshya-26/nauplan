@@ -65,13 +65,13 @@ def port_limit(port_id: str, a: dict | None = None) -> PortLimit:
     for _, r in berths()[berths()["port_id"] == port_id].iterrows():
         depth = _num(r["water_depth_m"])
         if _num(r["max_draft_m"]) is not None:
-            d, basis = float(r["max_draft_m"]), "published max draft"
+            d, basis = float(r["max_draft_m"]), "published limit"
         elif port_id in TIDAL_RULES and depth is not None:
             tide = a["tidal"]["hay_point_planning_tide_m"]
-            d, basis = TIDAL_RULES[port_id](depth, tide), f"tidal rule at {tide} m tide (tide is a placeholder)"
+            d, basis = TIDAL_RULES[port_id](depth, tide), f"tidal rule, {tide} m tide assumed"
         elif depth is not None:
             f = a["voyage"]["depth_to_draft_factor"]
-            d, basis = depth / f, f"water depth / {f} (placeholder)"
+            d, basis = depth / f, f"water depth / {f}, assumed"
         else:
             d, basis = None, "draft limit not sourced"
         cand = PortLimit(port_id, r["berth"], d, basis, _num(r["max_loa_m"]), _num(r["max_beam_m"]),

@@ -3,7 +3,7 @@
 Freight forecasting and vessel chartering decision support for bulk cargo imports to India's East Coast.
 Team Vector66, Smart India Hackathon 2026, problem statement **SIH26006** (Ministry of Steel, SAIL).
 
-**Status:** early build. Public data pipeline, port and route reference data, freight forecasting with a walk-forward backtest, vessel-port fit and the charter strategy optimiser work (on a synthetic cargo programme with placeholder costs). The dashboard is not built yet.
+**Status:** early build. Public data pipeline, port and route reference data, freight forecasting with a walk-forward backtest, vessel-port fit, the charter strategy optimiser and the dashboard work (on a synthetic cargo programme with placeholder costs).
 
 ## Setup
 
@@ -19,6 +19,17 @@ uv run nauplan plan        # vessel choice + charter plan, writes reports/plan_e
 uv run pytest
 ```
 
+### Dashboard
+
+Requires Node 20+.
+
+```bash
+cd web && npm install && npm run build && cd ..
+uv run nauplan serve       # dashboard and API on http://127.0.0.1:8000
+```
+
+For front-end work, run `uv run nauplan serve` and `cd web && npm run dev` (Vite on :5173, proxying /api).
+
 ## Layout
 
 ```
@@ -29,6 +40,8 @@ src/nauplan/
   forecast/             weekly panel, features, models, walk-forward backtest, volatility warning
   vessels.py            vessel-port fit (draft, LOA, beam) and voyage economics (Baltic TCE relation)
   optimise/             scenarios and stochastic MILP: spot vs time charter vs COA, CVaR
+  api.py                FastAPI endpoints for the dashboard; serves web/dist
+web/                    React + Vite dashboard (chart map, draft gauge, outlook, charter plan, warnings)
 config/
   assumptions.toml      costs and parameters; every value marked SOURCED or PLACEHOLDER
   synthetic_programme.toml  demo cargo programme (synthetic, not SAIL data)

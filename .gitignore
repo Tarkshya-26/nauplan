@@ -8,3 +8,6 @@ data/raw/
 data/processed/
 node_modules/
 dist/
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo

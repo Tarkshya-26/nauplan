@@ -48,6 +48,14 @@ def _network(without_torres: bool):
     return net
 
 
+def geometry(origin: tuple[float, float], destination: tuple[float, float], variant: str = "deep_draft") -> list:
+    """The route as [lon, lat] points (with the port positions appended), for drawing."""
+    without_torres, restrictions = VARIANTS[variant]
+    r = sr.searoute(list(origin), list(destination), units="naut", M=_network(without_torres),
+                    restrictions=list(restrictions), append_orig_dest=True)
+    return [[round(x, 3), round(y, 3)] for x, y in r.geometry["coordinates"]]
+
+
 def route(origin: tuple[float, float], destination: tuple[float, float], variant: str = "deep_draft") -> dict:
     """origin / destination as (lon, lat). Returns distance in nautical miles and what the route crosses."""
     without_torres, restrictions = VARIANTS[variant]
